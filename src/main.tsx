@@ -88,13 +88,13 @@ const RootComponent = () => {
               <LogoWithText />
             </div>
             <p className="text-sm" style={{ color: 'var(--gray-10)' }}>
-              © {new Date().getFullYear()} Shanghai Guide. Built with Radix &amp; TanStack.
+              © {new Date().getFullYear()} Shanghai Guide.
             </p>
           </div>
         </footer>
 
       </div>
-      <TanStackRouterDevtools position="bottom-right" />
+      {import.meta.env.DEV && <TanStackRouterDevtools position="bottom-right" />}
     </Theme>
   );
 };

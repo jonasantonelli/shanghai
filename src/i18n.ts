@@ -49,6 +49,13 @@ const resources = {
           jokers_desc: 'Worth 20 points if caught in hand. Can be stolen by the correct natural card, but must stay within that specific Run.'
         }
       },
+      game: {
+        round: 'Round',
+        set: 'Set',
+        run: 'Run',
+        contract: 'Contract',
+        of: 'of'
+      },
       validator: {
         roundSelection: 'Round Selection',
         cardLibrary: 'Card Library',
@@ -112,6 +119,13 @@ const resources = {
           jokers_desc: 'Valem 20 pontos se ficarem na mão. Podem ser roubados pela carta natural correta, mas devem permanecer na mesma sequência.'
         }
       },
+      game: {
+        round: 'Rodada',
+        set: 'Trinca',
+        run: 'Sequência',
+        contract: 'Contrato',
+        of: 'de'
+      },
       validator: {
         roundSelection: 'Seleção da Rodada',
         cardLibrary: 'Biblioteca de Cartas',
@@ -174,6 +188,13 @@ const resources = {
           jokers: 'Comodines (Jokers)',
           jokers_desc: 'Valen 20 puntos si se quedan en la mano. Pueden ser robados por la carta natural correcta, pero deben permanecer en la misma escalera.'
         }
+      },
+      game: {
+        round: 'Ronda',
+        set: 'Tercia',
+        run: 'Escalera',
+        contract: 'Contrato',
+        of: 'de'
       },
       validator: {
         roundSelection: 'Selección de Ronda',
