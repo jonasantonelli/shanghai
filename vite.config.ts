@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react'
 import path from 'path'
 
 // https://vite.dev/config/
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   base: '/shanghai/',
   plugins: [react()],
   resolve: {
@@ -11,4 +11,7 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
-})
+  define: {
+    'process.env.NODE_ENV': JSON.stringify(mode),
+  },
+}))
