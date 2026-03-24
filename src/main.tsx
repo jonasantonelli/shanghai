@@ -8,7 +8,7 @@ import {
   createRootRoute,
   Link,
 } from '@tanstack/react-router'
-import { TanStackRouterDevtools } from '@tanstack/router-devtools'
+import { TanStackRouterDevtools } from '@tanstack/router-devtools/production'
 import { Theme, Select } from '@radix-ui/themes'
 import { Library } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
@@ -88,7 +88,7 @@ const RootComponent = () => {
               <LogoWithText />
             </div>
             <p className="text-sm" style={{ color: 'var(--gray-10)' }}>
-              © {new Date().getFullYear()} Shanghai Guide. Built with Radix &amp; TanStack.
+              © {new Date().getFullYear()} Shanghai Guide.
             </p>
           </div>
         </footer>
