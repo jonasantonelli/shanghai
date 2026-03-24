@@ -22,7 +22,7 @@ import { LogoWithText } from './components/Logo'
 const RootComponent = () => {
   const { t, i18n } = useTranslation();
   return (
-    <Theme appearance="light" accentColor="plum" grayColor="mauve" panelBackground="translucent" radius="full" scaling="105%">
+    <Theme appearance="light" accentColor="iris" grayColor="mauve" panelBackground="translucent" radius="large">
       <div aria-hidden="true" className="bg-shapes"><div className="bg-shape-bottom" /></div>
       <div className="min-h-screen font-sans antialiased flex flex-col" style={{ position: 'relative', zIndex: 1 }}>
 
