@@ -107,7 +107,7 @@ const indexRoute = createRoute({ getParentRoute: () => rootRoute, path: '/', com
 const validatorRoute = createRoute({ getParentRoute: () => rootRoute, path: '/validator', component: HandValidator })
 
 const routeTree = rootRoute.addChildren([indexRoute, validatorRoute])
-const router = createRouter({ routeTree })
+const router = createRouter({ routeTree, basepath: '/shanghai' })
 
 declare module '@tanstack/react-router' {
   interface Register { router: typeof router }
