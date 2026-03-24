@@ -8,7 +8,7 @@ import {
   createRootRoute,
   Link,
 } from '@tanstack/react-router'
-import { TanStackRouterDevtools } from '@tanstack/router-devtools/production'
+import { TanStackRouterDevtools } from '@tanstack/router-devtools'
 import { Theme, Select } from '@radix-ui/themes'
 import { Library } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
@@ -94,7 +94,7 @@ const RootComponent = () => {
         </footer>
 
       </div>
-      <TanStackRouterDevtools position="bottom-right" />
+      {import.meta.env.DEV && <TanStackRouterDevtools position="bottom-right" />}
     </Theme>
   );
 };
