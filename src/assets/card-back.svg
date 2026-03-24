@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300">
+  <defs>
+    <pattern id="pattern-checkers" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <rect x="0" y="0" width="10" height="10" fill="#1d4ed8"/>
+      <rect x="10" y="0" width="10" height="10" fill="#2563eb"/>
+      <rect x="0" y="10" width="10" height="10" fill="#2563eb"/>
+      <rect x="10" y="10" width="10" height="10" fill="#1d4ed8"/>
+    </pattern>
+  </defs>
+  <rect width="200" height="300" rx="15" fill="white" stroke="#1e40af" stroke-width="8"/>
+  <rect x="10" y="10" width="180" height="280" rx="10" fill="url(#pattern-checkers)"/>
+  <circle cx="100" cy="150" r="40" fill="white" stroke="#1e40af" stroke-width="4"/>
+  <text x="100" y="160" font-family="serif" font-weight="bold" font-size="40" text-anchor="middle" fill="#1e40af">S</text>
+</svg>

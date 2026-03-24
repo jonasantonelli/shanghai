@@ -1,0 +1,238 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background: var(--color-background);
+    color: var(--gray-12);
+  }
+}
+
+/* ─── Animations ─────────────────────────────────────────────────────── */
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.96); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.anim-hero-title {
+  animation: fadeSlideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.anim-hero-subtitle {
+  animation: fadeSlideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+}
+
+.anim-section {
+  animation: fadeSlideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.anim-card {
+  animation: scaleIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.anim-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+.anim-card-static:hover {
+  transform: none;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06) !important;
+}
+
+/* ─── Background Shapes ──────────────────────────────────────────────── */
+.bg-shapes {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.bg-shapes::before {
+  content: '';
+  position: absolute;
+  top: -180px;
+  left: -120px;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(62, 99, 221, 0.13) 0%, transparent 65%);
+  border-radius: 50%;
+}
+
+.bg-shapes::after {
+  content: '';
+  position: absolute;
+  top: 80px;
+  right: -160px;
+  width: 580px;
+  height: 580px;
+  background: radial-gradient(circle, rgba(110, 86, 207, 0.11) 0%, transparent 65%);
+  border-radius: 50%;
+}
+
+.bg-shape-bottom {
+  position: absolute;
+  bottom: -100px;
+  left: 30%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(0, 150, 180, 0.07) 0%, transparent 65%);
+  border-radius: 50%;
+}
+
+/* ─── Nav Links ───────────────────────────────────────────────────────── */
+.nav-link {
+  color: var(--gray-10);
+}
+.nav-link:hover {
+  color: var(--accent-11);
+}
+.nav-link.active {
+  color: var(--gray-12);
+  font-weight: 600;
+}
+
+.nav-link-icon {
+  color: var(--gray-10);
+}
+.nav-link-icon:hover {
+  color: var(--gray-12);
+  background-color: var(--gray-a3);
+}
+.nav-link-icon.active {
+  color: var(--accent-11);
+}
+
+/* ─── Radix Brand Palette (used by inner components) ─────────────────── */
+:root {
+  --bg-pattern: radial-gradient(circle at 2px 2px, var(--gray-a4) 1px, transparent 0);
+  --card-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.1), 0 2px 6px -1px rgba(0, 0, 0, 0.05);
+  --card-shadow-hover: 0 12px 24px -4px rgba(62, 99, 221, 0.2), 0 4px 12px -2px rgba(0, 0, 0, 0.1);
+
+  --mauve-1: #fdfcfd;
+  --mauve-2: #f9f8f9;
+  --mauve-12: #1a1523;
+  --indigo-9: #3e63dd;
+  --indigo-10: #3358d4;
+  --indigo-11: #354c9b;
+  --violet-9: #6e56cf;
+
+  --mauve-dark-1: #161618;
+  --mauve-dark-2: #1c1c1f;
+  --mauve-dark-12: #eeeef0;
+}
+
+/* ─── Accordion ───────────────────────────────────────────────────────── */
+.AccordionRoot {
+  border-radius: var(--radius-4);
+  overflow: hidden;
+  border: 1px solid var(--gray-a4);
+  background-color: var(--gray-a2);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.08);
+}
+
+.AccordionItem {
+  border-bottom: 1px solid var(--gray-a4);
+}
+
+.AccordionTrigger {
+  all: unset;
+  padding: 0 20px;
+  height: 56px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: all 0.2s;
+}
+
+.AccordionTrigger:hover {
+  background-color: var(--gray-a3);
+}
+
+.AccordionContent {
+  overflow: hidden;
+  background-color: var(--gray-a1);
+}
+
+/* ─── Playing Cards ───────────────────────────────────────────────────── */
+.playing-card {
+  width: 54px;
+  height: 76px;
+  background: white;
+  color: #1c2024;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  box-shadow: var(--card-shadow);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid var(--gray-a4);
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+}
+
+.playing-card:hover {
+  transform: translateY(-8px) scale(1.04);
+  box-shadow: var(--card-shadow-hover);
+  border-color: var(--indigo-9);
+}
+
+.playing-card.red {
+  color: #e5484d;
+}
+
+.playing-card.joker {
+  background: linear-gradient(135deg, var(--indigo-9) 0%, var(--violet-9) 100%);
+  color: white;
+  border-color: var(--indigo-10);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.ghost-slot {
+  width: 54px;
+  height: 76px;
+  border: 1px dashed var(--gray-a7);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gray-a8);
+  font-size: 18px;
+  transition: all 0.2s;
+  background-color: var(--gray-a2);
+}
+
+.ghost-slot:hover {
+  border-color: var(--indigo-9);
+  background-color: var(--indigo-a2);
+  color: var(--indigo-11);
+}
+
+@media (min-width: 600px) {
+  .playing-card { width: 64px; height: 90px; padding: 8px; font-size: 14px; }
+  .ghost-slot { width: 64px; height: 90px; font-size: 20px; }
+}
