@@ -236,3 +236,17 @@
   .playing-card { width: 64px; height: 90px; padding: 8px; font-size: 14px; }
   .ghost-slot { width: 64px; height: 90px; font-size: 20px; }
 }
+
+@media (max-width: 599px) {
+  .search-desktop { display: none !important; }
+
+  .scoring-cards-display {
+    transform: scale(0.68);
+    transform-origin: top center;
+  }
+
+  .rounds-section {
+    width: 100%;
+    grid-column: span 3 !important;
+  }
+}

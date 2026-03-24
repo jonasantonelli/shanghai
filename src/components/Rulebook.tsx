@@ -68,6 +68,7 @@ export const Rulebook: FC = () => {
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             variant="surface"
+            className="search-desktop"
             style={{ width: 280, flexShrink: 0 }}
           >
             <TextField.Slot>
@@ -174,7 +175,7 @@ export const Rulebook: FC = () => {
                 }}
               >
                 <Flex direction="column" align="center" style={{ gap: 24, paddingTop: 8, paddingBottom: 6 }}>
-                  <div style={{ display: 'flex', justifyContent: 'center', position: 'relative', height: 76 }}>
+                  <div className="scoring-cards-display" style={{ display: 'flex', justifyContent: 'center', position: 'relative', height: 76 }}>
                     {cards.map((card, ci) => (
                       <div key={card.id} style={{ marginLeft: ci === 0 ? 0 : overlap, zIndex: ci, position: 'relative' }}>
                         <PlayingCard card={card} />
@@ -198,7 +199,7 @@ export const Rulebook: FC = () => {
         </Box>
 
         {/* Rounds — narrow column */}
-        <Box style={{ gridColumn: 'span 2' }}>
+        <Box className="rounds-section" style={{ gridColumn: 'span 2' }}>
           <SectionHeading delay={250}>{t('rules.rounds')}</SectionHeading>
           <Flex direction="column" gap="2">
             {SHANGHAI_ROUNDS.map((round, i) => {
