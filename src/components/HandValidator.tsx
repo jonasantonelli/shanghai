@@ -53,6 +53,20 @@ export const HandValidator: FC = () => {
     setSlots(newSlots);
   };
 
+  const translateRoundName = (id: number) => `${t('game.round')} ${id}`;
+
+  const translateDescription = (contracts: typeof selectedRound.contracts) => {
+    const groups: Record<string, number[]> = {};
+    contracts.forEach(c => {
+      const key = t(`game.${c.type.toLowerCase()}`);
+      if (!groups[key]) groups[key] = [];
+      groups[key].push(c.count);
+    });
+    return Object.entries(groups)
+      .map(([type, counts]) => `${counts.length} ${type} (${counts.join(', ')})`)
+      .join(' & ');
+  };
+
   const validateContract = (index: number) => {
     const contract = selectedRound.contracts[index];
     const cards = slots[index];
@@ -89,13 +103,13 @@ export const HandValidator: FC = () => {
             >
               <Tabs.List size="2" color="jade" highContrast style={{ flexWrap: 'nowrap', minWidth: 'max-content' }}>
                 {SHANGHAI_ROUNDS.map(r => (
-                  <Tabs.Trigger key={r.id} value={r.id.toString()}>Round {r.id}</Tabs.Trigger>
+                  <Tabs.Trigger key={r.id} value={r.id.toString()}>{t('game.round')} {r.id}</Tabs.Trigger>
                 ))}
               </Tabs.List>
               <Box pt="4">
                 <Flex align="center" gap="2">
                   <Info size={14} color="var(--gray-9)" />
-                  <Text size="2" color="gray" weight="medium">{selectedRound.description}</Text>
+                  <Text size="2" color="gray" weight="medium">{translateDescription(selectedRound.contracts)}</Text>
                 </Flex>
               </Box>
             </Tabs.Root>
@@ -116,8 +130,8 @@ export const HandValidator: FC = () => {
               <Flex direction="column" gap="4">
                 <Flex justify="between" align="center">
                   <Flex direction="column" gap="1">
-                    <Text size="3" weight="bold">{contract.type} of {contract.count}</Text>
-                    <Text size="1" color="gray">Contract #{i + 1}</Text>
+                    <Text size="3" weight="bold">{t(`game.${contract.type.toLowerCase()}`)} {t('game.of')} {contract.count}</Text>
+                    <Text size="1" color="gray">{t('game.contract')} #{i + 1}</Text>
                   </Flex>
                   <Flex gap="2" align="center">
                     {result.isValid ? (
@@ -230,7 +244,7 @@ export const HandValidator: FC = () => {
             <Flex direction="column" gap="4" p="1">
               <Box>
                 <Heading size="4" mb="1" color="green">{t('validator.success')}</Heading>
-                <Text size="3">{t('validator.successDesc', { round: selectedRound.name })}</Text>
+                <Text size="3">{t('validator.successDesc', { round: translateRoundName(selectedRound.id) })}</Text>
               </Box>
               <Flex gap="4" align={{ initial: 'stretch', sm: 'center' }} direction={{ initial: 'column', sm: 'row' }}>
                 <TextField.Root 
@@ -264,7 +278,7 @@ export const HandValidator: FC = () => {
                       <Flex direction="column" align="center" gap="2">
                         <Heading size="7" weight="bold">{t('validator.trophyTitle')}</Heading>
                         <Text align="center" size="4" color="gray" style={{ maxWidth: '300px' }}>
-                          {t('validator.trophyDesc', { name: userName || 'Champion', round: selectedRound.name })}
+                          {t('validator.trophyDesc', { name: userName || 'Champion', round: translateRoundName(selectedRound.id) })}
                         </Text>
                       </Flex>
                       <Flex gap="3" mt="4" justify="center" width="100%">

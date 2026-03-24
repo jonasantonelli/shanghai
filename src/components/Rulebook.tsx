@@ -16,11 +16,11 @@ const SectionHeading: FC<{ children: React.ReactNode; delay?: number }> = ({ chi
   </Flex>
 );
 
-const ContractBadge: FC<{ type: 'Set' | 'Run'; count: number; color: RadixColor }> = ({ type, count, color }) => (
+const ContractBadge: FC<{ type: 'Set' | 'Run'; count: number; color: RadixColor; label: string }> = ({ type, count, color, label }) => (
   <Badge color={color} variant="soft" radius="full" size="2">
     <Flex align="center" gap="1">
       {type === 'Set' ? <Square size={10} /> : <Repeat size={10} />}
-      <span>{type} ×{count}</span>
+      <span>{label} ×{count}</span>
     </Flex>
   </Badge>
 );
@@ -220,7 +220,7 @@ export const Rulebook: FC = () => {
                 >
                   <Flex align="center" gap="3">
                     <Badge color={color} variant="solid" radius="full" size="1" style={{ minWidth: 60, justifyContent: 'center' }}>
-                      Round {round.id}
+                      {t('game.round')} {round.id}
                     </Badge>
                     <Flex gap="2" wrap="wrap" style={{ flex: 1 }}>
                       {round.contracts.map((contract, ci) => (
@@ -229,6 +229,7 @@ export const Rulebook: FC = () => {
                           type={contract.type as 'Set' | 'Run'}
                           count={contract.count}
                           color={color}
+                          label={t(`game.${contract.type.toLowerCase()}`)}
                         />
                       ))}
                     </Flex>
